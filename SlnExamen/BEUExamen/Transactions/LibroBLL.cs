@@ -40,7 +40,7 @@ namespace BEUExamen.Transactions
             return db.Libroes.Find(id);
         }
 
-        public static void Update(Libro libro)
+        public static void Update(Libro Libro)
         {
             using (Entities db = new Entities())
             {
@@ -48,8 +48,8 @@ namespace BEUExamen.Transactions
                 {
                     try
                     {
-                        db.Libroes.Attach(libro);
-                        db.Entry(libro).State = System.Data.Entity.EntityState.Modified; //Attach en lugar de SAaveChanges es otra opcion
+                        db.Libroes.Attach(Libro);
+                        db.Entry(Libro).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                         transaction.Commit();
                     }
@@ -70,8 +70,8 @@ namespace BEUExamen.Transactions
                 {
                     try
                     {
-                        Libro libro = db.Libroes.Find(id);
-                        db.Entry(libro).State = System.Data.Entity.EntityState.Deleted;
+                        Libro Libro = db.Libroes.Find(id);
+                        db.Entry(Libro).State = System.Data.Entity.EntityState.Deleted;
                         db.SaveChanges();
                         transaction.Commit();
                     }
